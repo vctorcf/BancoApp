@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DashboardPixActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Que operação você gostaria de realizar?"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/buttonEnviarPix"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enviar Pix"
+            android:onClick="EnviarPix"/>
+
+        <Button
+            android:id="@+id/buttonCadastrarPix"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cadastrar Chave Pix"
+            android:onClick="CadastrarPix"/>
+
+        <Button
+            android:id="@+id/buttonRemoverPix"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Remover Chave Pix"
+            android:onClick="RemoverPix"/>
+
+        <Button
+            android:id="@+id/buttonListarPix"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Listar Chaves Pix"
+            android:onClick="ListarPix"/>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
