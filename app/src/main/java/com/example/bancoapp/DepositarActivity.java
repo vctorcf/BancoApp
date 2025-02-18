@@ -18,6 +18,8 @@ public class DepositarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_depositar);
 
         valor = findViewById(R.id.editTextDepositoValor);
+
+        repositorioExtrato = new RepositorioExtrato(this); //Instanciando um objeto de RepositorioExtrato
     }
 
     public void RealizarDeposito(View view) {

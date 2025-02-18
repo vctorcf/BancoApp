@@ -36,8 +36,7 @@ public class RepositorioPix extends SQLiteOpenHelper {
 
     public void cadastrarChave(String nome, String chave) {
         if (chave.matches("\\d{11}")){
-            String sql = "INSERT INTO pix (nome, chave) VALUES (" +
-                    nome + " ," + chave + ")";
+            String sql = "INSERT INTO pix (nome, chavePix) VALUES ('" + nome + "' ,'" + chave + "')";
             getWritableDatabase().execSQL(sql);
             Log.i("pix", "Chave Pix " + chave + " foi cadastrada no nome de " + nome);
         } else {
@@ -45,9 +44,9 @@ public class RepositorioPix extends SQLiteOpenHelper {
         }
     }
 
-    public void removerChave(String chave){
-        String sql="DELETE FROM pix WHERE chavePix = " + chave;
-        getWritableDatabase().execSQL(sql);
+    public void removerChave(String chave) {
+        String sql = "DELETE FROM pix WHERE chavePix = ?";
+        getWritableDatabase().execSQL(sql, new Object[]{chave});
         Log.i("pix", "Chave Pix " + chave + " foi deletada.");
     }
 
@@ -58,7 +57,7 @@ public class RepositorioPix extends SQLiteOpenHelper {
         boolean chaveExiste = cursor.moveToFirst();
         cursor.close();
 
-        return true;
+        return chaveExiste;
     }
 
     @SuppressLint("Range")
@@ -66,6 +65,8 @@ public class RepositorioPix extends SQLiteOpenHelper {
         List<Pix> listaPix = new ArrayList<>();
         String sql = "SELECT * FROM pix ORDER BY id ASC";
         Cursor cursor = getReadableDatabase().rawQuery(sql, null);
+
+        Log.i("pix", "Total de chaves Pix encontradas: " + cursor.getCount());
 
         if (cursor.moveToFirst()) {
             do {

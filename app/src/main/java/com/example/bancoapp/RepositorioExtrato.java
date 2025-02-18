@@ -19,13 +19,13 @@ public class RepositorioExtrato extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase){
         //criando a tabela extrato
-        String sql ="create table extrato " +
-                "(id integer not  null primary key autoincrement," +
-                "operacao text," +
-                "valor real," +
-                "saldo real)";
+        String sql ="create table extrato (" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "operacao text not null," +
+                "valor real not null," +
+                "saldo real not null);";
         sqLiteDatabase.execSQL(sql);
-        Log.i("extrato","Criado com sucesso a tabela extrato");
+        Log.i("extrato","A tabela extrato foi criada com sucesso.");
 
         //adicionando os primeiros valores para iniciar a tabela e criar saldo zerado
         String sqlIniciarTabela = "insert into extrato (operacao, valor, saldo) " +

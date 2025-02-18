@@ -18,6 +18,8 @@ public class RetirarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_retirar);
 
         valor = findViewById(R.id.editTextRetirarValor);
+
+        repositorioExtrato = new RepositorioExtrato(this); //Instanciando um objeto de RepositorioExtrato
     }
 
     public void RealizarRetirada(View view){

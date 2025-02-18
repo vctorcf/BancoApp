@@ -37,12 +37,14 @@ public class CadastrarPixActivity extends AppCompatActivity {
             return;
         }
 
+
+
         if (nomeTexto.isEmpty()){
             Toast.makeText(this, "Insira o nome do dono da chave.",Toast.LENGTH_SHORT).show();
             return;
         }
 
-        if (chaveTexto.equals("\\d{11}")){
+        if (!chaveTexto.equals("\\d{11}")){
             repositorioPix.cadastrarChave(nomeTexto, chaveTexto);
         } else {
             Toast.makeText(this, "A chave pode ter somente 11 números. Não use letras ou caracteres especiais.",Toast.LENGTH_SHORT).show();

@@ -30,7 +30,7 @@ public class DashboardActivity extends AppCompatActivity {
     }
 
     public void FazerPix(View view){
-        Intent intent = new Intent(this,DashboardActivity.class);
+        Intent intent = new Intent(this,DashboardPixActivity.class);
         startActivity(intent);
     }
 }
